@@ -4,42 +4,12 @@ use geometrical_shapes as gs;
 use gs::{Displayable, Drawable};
 use raster::{Image, Color};
 
-// Point
-struct Point(i32, i32)
-impl Point {
-    fn new(x: i32, y: i32) -> Self {
-        Self(x, y)
-    }
-
-}
-
-struct Line(Point, Point)
-impl Line {
-    fn new(x: &Point, y: &Point) -> Self {
-        Self(x, y)
-    }
-
-    fn random(width: i32, height: i32) -> self{
-        let x = rand::thread_rng().gen_range(1..=width);
-        let y = rand::thread_rng().gen_range(1..=height);
-        let x2 = rand::thread_rng().gen_range(x..=width);
-        let y2 = rand::thread_rng().gen_range(y..=height);
-        
-        self (
-            Point::new(x, y),
-            Point::new(x2, y2)
-        )
-    }
-
-    fn draw(&self, image: &Image) {
-        
-    }
-}
-
 fn main() {
     let image = Image::blank(1000, 1000);
-
-    gs::Line::random(image.width, image.height).draw(&mut image);
+    
+    for _ in 0..50 {
+        gs::Line::random(image.width, image.height).draw(&mut image);
+    }
 
     // gs::Point::random(image.width, image.height).draw(&mut image);
 
@@ -60,10 +30,10 @@ fn main() {
     raster::save(&image, "image.png").unwrap();
 }
 
-// impl Displayable for Image {
-//     fn display(&mut self, x: i32, y: i32, color: Color) {
-//         if x >= 0 && x < self.width && y >= 0 && y < self.height {
-//             self.set_pixel(x, y, color).unwrap();
-//         }
-//     }
-// }
+impl Displayable for Image {
+    fn display(&mut self, x: i32, y: i32, color: Color) {
+        if x >= 0 && x < self.width && y >= 0 && y < self.height {
+            self.set_pixel(x, y, color).unwrap();
+        }   
+    }
+}
