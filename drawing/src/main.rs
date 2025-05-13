@@ -1,12 +1,12 @@
 mod geometrical_shapes;
 
 use geometrical_shapes as gs;
-use gs::{Displayable, Drawable};
+use gs::{Displayable};
 use raster::{Image, Color};
 
 fn main() {
-    let image = Image::blank(1000, 1000);
-    
+    let mut image = Image::blank(1000, 1000);
+
     for _ in 0..50 {
         gs::Line::random(image.width, image.height).draw(&mut image);
     }
