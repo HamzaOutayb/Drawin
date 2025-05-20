@@ -1,0 +1,33 @@
+# Geometrical Shapes in Rust
+
+This project was developed as an exercise to help understand the core concepts of Rust, including traits, modules, and image processing. The goal is to implement various geometrical shapes, their associated traits, and a main function that generates a PNG image of random geometrical shapes.
+![Geometrical Shapes Example](assets/image.png)
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Modules](#modules)
+- [Dependencies](#dependencies)
+- [Bonus](#bonus)
+- [Contributing](#contributing)
+
+## Overview
+
+In this project, we create a module `geometrical_shapes` where we define several geometrical shapes (Point, Line, Triangle, Rectangle, Circle) and traits (Drawable, Displayable). Using these shapes, we generate a 1000x1000 PNG image with a variety of shapes randomly placed within the image.
+
+The primary objectives are:
+- Implementing the `Drawable` and `Displayable` traits for the shapes.
+- Defining structures for different shapes like Point, Line, Triangle, Rectangle, and Circle.
+- Working with random generation of coordinates for shapes.
+- Saving the generated shapes to a PNG image.
+
+## Usage
+
+To use this project, simply clone the repository and run it with `cargo run`:
+
+```bash
+git clone https://github.com/yourusername/geometrical-shapes-rust.git
+cd geometrical-shapes-rust
+cargo run
